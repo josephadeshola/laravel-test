@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get("/details", [CreatedetailsController::class, 'create']);
-Route::resource('/contact',CreatedetailsController::class);
+Route::resource('/student',CreatedetailsController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

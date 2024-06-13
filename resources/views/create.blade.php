@@ -6,9 +6,10 @@
     <div class="col-8 mx-auto shadow">
         <div class="shadow p-4 m-4">
             <h5 class="text-center text-info">Contact App</h5>
-            <form action="/contact" method="post">
+            <form action="/student" method="post">
                 @csrf
-                <input type="text"  name="fullname" class="form-control mt-3" placeholder="Fullname-Name">
+                <input type="text"  name="fullname" class="form-control mt-3" placeholder="Full-Name">
+                <input type="text"  name="lastname" class="form-control mt-3" placeholder="Last-Name">
                 <input type="text"  name="phonenumber" class="form-control mt-3" placeholder="Phone-Number">
                 <input type="text"  name="email" class="form-control mt-3" placeholder="Email">
                 <input type="text"  name="password" class="form-control mt-3" placeholder="Password">

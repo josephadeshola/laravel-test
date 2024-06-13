@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
 use App\Models\students;
 use Illuminate\Http\Request;
 
@@ -16,7 +15,7 @@ class CreatedetailsController extends Controller
     {
         $allDetails = students::all();
         return view("display", [
-            'contact'=> $allDetails
+            'details'=> $allDetails
         ]);
     }
 
@@ -41,13 +40,16 @@ class CreatedetailsController extends Controller
         $content->email=$request->email;
         $content->password=$request->password;
         $content->password=$request->address;
+        $content->address = $request->address;
         $content->save();
-        return $content;
+        // return $content;
+        return redirect('/student');
     }
 
     /**
      * Display the specified resource.
      */
+    
     public function show(string $id)
     {
         //
