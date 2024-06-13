@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\students;
 use Illuminate\Http\Request;
 
 class CreatedetailsController extends Controller
@@ -13,7 +14,10 @@ class CreatedetailsController extends Controller
      */
     public function index()
     {
-        // return view('create');
+        $allDetails = students::all();
+        return view("display", [
+            'contact'=> $allDetails
+        ]);
     }
 
     /**
@@ -29,7 +33,7 @@ class CreatedetailsController extends Controller
      */
     public function store(Request $request)
     {
-        $content = new Contact();
+        $content = new students();
         // $content->full_name=$request->input('fullname');
         // or
         $content->full_name=$request->fullname;
