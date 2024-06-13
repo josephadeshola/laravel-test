@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\students;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CreatedetailsController extends Controller
 {
@@ -13,7 +14,7 @@ class CreatedetailsController extends Controller
      */
     public function index()
     {
-        $allDetails = students::all();
+        $allDetails = students::where('user_id', Auth::user()->id)->get();
         return view("display", [
             'details'=> $allDetails
         ]);
@@ -33,14 +34,15 @@ class CreatedetailsController extends Controller
     public function store(Request $request)
     {
         $content = new students();
+        $authUser = Auth::user()->id;
         // $content->full_name=$request->input('fullname');
         // or
         $content->full_name=$request->fullname;
         $content->phonenumber=$request->phonenumber;
         $content->email=$request->email;
         $content->password=$request->password;
-        $content->password=$request->address;
         $content->address = $request->address;
+        $content->user_id = $authUser;
         $content->save();
         // return $content;
         return redirect('/student');

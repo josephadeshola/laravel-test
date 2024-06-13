@@ -3,7 +3,7 @@
 <div class="container">
     <div>
         {{-- {{dd(Auth::user())}} --}}
-        {{-- @if(Auth::user()) --}}
+        @if(Auth::user())
         <div class="row mt-5">
             @foreach ($details as $note)
             {{-- {{$allDetails}} --}}
@@ -39,10 +39,10 @@
             </div>
             @endforeach
         </div>
-        {{-- @else --}}
+        @else
         <div>you are not currently signed in</div>
         <a href="/login">Login in here!</a>
-        {{-- @endif --}}
+        @endif
     </div>
     
 </div>
