@@ -3,19 +3,19 @@
 <div class="container">
     <div>
         {{-- {{dd(Auth::user())}} --}}
-        @if(Auth::user())
+        {{-- @if(Auth::user()) --}}
         <div class="row mt-5">
             @foreach ($details as $note)
-            {{$details}}
-            <div class="shadow mt-3 col-8 mx-auto py-4 d-flex justify-content-center">
+            {{-- {{$allDetails}} --}}
+            <div class="shadow mt-3 col-8 mx-auto py-4 ">
                 <div class="col-6">
 
                     {{-- <div><b>User_id: </b> {{$note->user_id}}</div> --}}
-                    <div class="col-9 mt-3  d-flex"><b>Note Title : </b> <div> {{$note->full_name}}</div></div>
-                    <div class="col-9 mt-3  d-flex"><b>Note Content :</b> {{$note->phonenumber}}</div>
-                    <div class="col-12  mt-3 d-flex"><b>Created Date/ Time : </b> {{$note->email}}</div>
-                    <div class="col-12  mt-3 d-flex"><b>Created Date/ Time : </b> {{$note->password}}</div>
-                    <div class="col-12  mt-3 d-flex"><b>Created Date/ Time : </b> {{$note->address}}</div>
+                    <div class="col-9 mt-3  d-flex"><b>Fullname : </b> <div> {{$note->full_name}}</div></div>
+                    <div class="col-9 mt-3  d-flex"><b>Phone number:</b> {{$note->phonenumber}}</div>
+                    <div class="col-12  mt-3 d-flex"><b>Email : </b> {{$note->email}}</div>
+                    <div class="col-12  mt-3 d-flex"><b>Password: </b> {{$note->password}}</div>
+                    <div class="col-12  mt-3 d-flex"><b>Address : </b> {{$note->address}}</div>
                     <div class="col-9  mt-3 d-flex d-flex justify-between gap-2">
                         <form action="" >
                             @csrf
@@ -36,16 +36,13 @@
                     </a>
                 </div>
                 </div>
-                <div class="float-end">
-                    {{-- <img class="col-8 mx-auto float-end rounded-5" src="/images/{{$note->user_img}}" alt=""> --}}
-                </div>
             </div>
             @endforeach
         </div>
-        @else
+        {{-- @else --}}
         <div>you are not currently signed in</div>
         <a href="/login">Login in here!</a>
-        @endif
+        {{-- @endif --}}
     </div>
     
 </div>
